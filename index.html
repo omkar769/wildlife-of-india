@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildlife of India</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body & Fonts */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #004d00;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.2em;
+        }
+
+        header nav ul li a:hover {
+            color: #ff6347;
+            transform: scale(1.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('images/hero-wildlife.jpg'); /* Replace with your own image */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-top: 70px; /* To avoid the fixed header overlapping */
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h2 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            opacity: 0.8;
+        }
+
+        /* About Section */
+        #about {
+            padding: 60px 20px;
+            background-color: #fff;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        #about h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #004d00;
+        }
+
+        #about p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Animal Categories Section */
+        #animals {
+            padding: 60px 20px;
+            background-color: #e5e5e5;
+        }
+
+        #animals h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #004d00;
+        }
+
+        .animal-category {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .animal {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            width: 30%;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .animal:hover {
+            transform: translateY(-10px);
+        }
+
+        .animal h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #004d00;
+        }
+
+        .animal p {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        /* Gallery Section */
+        #gallery {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        #gallery h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #004d00;
+        }
+
+        .image-gallery {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .image-gallery img {
+            width: 30%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 60px 20px;
+            background-color: #e5e5e5;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #004d00;
+        }
+
+        form input, form textarea {
+            width: 80%;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form button {
+            padding: 15px 30px;
+            background-color: #004d00;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 1.2em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        form button:hover {
+            background-color: #ff6347;
+            transform: scale(1.05);
+        }
+
+        /* Map Section */
+        #map {
+            padding: 60px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>Wildlife of India</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#animals">Types of Animals</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#map">Map</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Explore the Wildlife of India</h2>
+            <p>Discover the beauty and diversity of India's wildlife</p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We are dedicated to preserving and promoting the rich wildlife heritage of India. Our mission is to educate and engage people to protect and conserve wildlife through awareness and action.</p>
+    </section>
+
+    <!-- Types of Animals Section -->
+    <section id="animals">
+        <h2>Types of Animals</h2>
+        <div class="animal-category">
+            <div class="animal">
+                <h3>Mammals</h3>
+                <p>Explore a variety of mammals found in India, from the Bengal tiger to the Indian elephant.</p>
+            </div>
+            <div class="animal">
+                <h3>Birds</h3>
+                <p>India is home to a diverse range of bird species, from migratory to endemic birds.</p>
+            </div>
+            <div class="animal">
+                <h3>Reptiles</h3>
+                <p>Discover reptiles like the King Cobra and Indian crocodiles.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="image-gallery">
+            <img src="tiger.webp" alt="Tiger"> <!-- Replace with your own image -->
+            <img src="ele.webp" alt="Elephant"> <!-- Replace with your own image -->
+            <img src="egel.jpeg" alt="Eagle"> <!-- Replace with your own image -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or want to get involved in conservation efforts, reach out to us!</p>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea><br>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map">
+        <h2>Wildlife Reserves Map</h2>
+        <div id="map-container">
+            <!-- Embed a Google map or interactive map here -->
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Wildlife of India | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
